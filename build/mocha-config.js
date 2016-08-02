@@ -14,5 +14,5 @@ module.exports = {
             stdout: '-'
         }
     },
-    ui: 'bdd'
+    unitTestMochaInterface: 'tdd'
 };

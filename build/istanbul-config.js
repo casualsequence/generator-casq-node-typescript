@@ -1,7 +1,7 @@
 'use strict';
 
 var unitTestCoverageDirectory = './coverage/unit';
-var unitTestCoverageReportHtmlFile = './coverage/unit/index.html'
+var unitTestCoverageReportHtmlFile = './coverage/unit/index.html';
 
 var unitTestGlobalStatementCoverageThreshold = 100;
 var unitTestGlobalBranchCoverageThreshold = 100;

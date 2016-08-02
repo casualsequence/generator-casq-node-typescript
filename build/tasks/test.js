@@ -23,7 +23,7 @@ gulp.task('run-unit-tests', function(cb) {
         .on('finish', function() {
             gulp.src(gulpConfig.javascriptUnitTests)
                 .pipe(mocha({
-                    ui: 'bdd',
+                    ui: mochaConfig.unitTestMochaInterface,
                     timeout: mochaConfig.unitTestTimeout,
                     reporter: mochaConfig.unitTestReporter,
                     reporterOptions: mochaConfig.unitTestReporterOptions

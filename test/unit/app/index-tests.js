@@ -5,9 +5,9 @@ var fs = require('fs');
 var helpers = require('yeoman-test');
 var path = require('path');
 
-describe('Node TypeScript Generator Suite: App', function() {
-    describe('Base Option Tests', function() {
-        it('Should create all the correct base files when the base option is selected', function(done) {
+suite('Node TypeScript Generator Suite: App', function() {
+    suite('Base Option Tests', function() {
+        test('Should create all the correct base files when the base option is selected', function(done) {
             // helpers.run(path.join(__dirname, './../../generators/app'))
             //     .withPrompts({
 

@@ -1,23 +1,35 @@
 module.exports = {
-    "env": {
-        "browser": true,
-        "commonjs": true
+    env: {
+        browser: false,
+        commonjs: true
     },
-    "extends": "eslint:recommended",
-    "rules": {
-        "indent": [
-            "error"
+    extends: 'eslint:recommended',
+    rules: {
+        indent: [
+            'error'
         ],
-        "linebreak-style": [
-            "off"
+        'linebreak-style': [
+            'off'
         ],
-        "quotes": [
-            "error",
-            "single"
+        'quotes': [
+            'error',
+            'single'
         ],
-        "semi": [
-            "error",
-            "always"
+        semi: [
+            'error',
+            'always'
         ]
-    }
+    },
+    // Custom Globals
+    globals: {
+        /* MOCHA */
+        describe: false,
+        it: false,
+        before: false,
+        beforeEach: false,
+        after: false,
+        afterEach: false,
+        suite: false,
+        test: false
+    }    
 };

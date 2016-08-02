@@ -24,4 +24,4 @@ tsd-debug.log
 /out/
 
 
-/testresults/
+**/testresults/
