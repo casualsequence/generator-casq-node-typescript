@@ -9,3 +9,5 @@ npm-debug*
 
 # Code Coverage
 **/coverage/
+
+**/testresults/

@@ -6,14 +6,14 @@ var jshint = require('gulp-jshint');
 var gulpConfig = require('./../gulp-config');
 
 gulp.task('jshint', function() {
-	return gulp.src(gulpConfig.allJavascript)
-		.pipe(jshint())
-		.pipe(jshint.reporter('default'));
+    return gulp.src(gulpConfig.allJavascript)
+        .pipe(jshint())
+        .pipe(jshint.reporter('default'));
 });
 
 gulp.task('eslint', function() {
-	return gulp.src(gulpConfig.allJavascript)
-		.pipe(eslint())
-		.pipe(eslint.format())
-		.pipe(eslint.failAfterError());
+    return gulp.src(gulpConfig.allJavascript)
+        .pipe(eslint())
+        .pipe(eslint.format())
+        .pipe(eslint.failAfterError());
 });
