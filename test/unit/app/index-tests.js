@@ -23,7 +23,7 @@ suite('Node TypeScript Generator Suite: App', function() {
             //         assert.deepEqual(expected, actual);
             //         done();
             //     });
-            assert.deepEqual(1,1);
+            assert.deepEqual(true, true);
             done();
         });
     });

@@ -23,5 +23,4 @@ tsd-debug.log
 /bin/**/*.js*
 /out/
 
-
 **/testresults/
