@@ -6,7 +6,11 @@ module.exports = {
     extends: 'eslint:recommended',
     rules: {
         indent: [
-            'error'
+            'error',
+            4,
+            {
+                "SwitchCase": 1
+            }
         ],
         'linebreak-style': [
             'off'
@@ -18,7 +22,8 @@ module.exports = {
         semi: [
             'error',
             'always'
-        ]
+        ],
+        
     },
     // Custom Globals
     globals: {
@@ -30,6 +35,7 @@ module.exports = {
         after: false,
         afterEach: false,
         suite: false,
-        test: false
+        test: false,
+        __dirname: false
     }    
 };

@@ -8,7 +8,8 @@ var gulpConfig = require('./../gulp-config');
 gulp.task('jshint', function() {
     return gulp.src(gulpConfig.allJavascript)
         .pipe(jshint())
-        .pipe(jshint.reporter('default'));
+        .pipe(jshint.reporter('default'))
+        .pipe(jshint.reporter('fail'));
 });
 
 gulp.task('eslint', function() {

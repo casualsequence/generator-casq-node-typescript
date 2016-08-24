@@ -1,6 +1,4 @@
-// "name": <%- JSON.stringify(name) %>,
-{
-    
+{    
     "version": "0.0.1",
     "license": "",
     "repository": {},

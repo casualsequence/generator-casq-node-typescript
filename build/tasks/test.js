@@ -19,7 +19,7 @@ gulp.task('pre-unit-tests', function() {
         .pipe(istanbul({
             includeUntested: istanbulConfig.includeUntested,
         }))
-        .pipe(istanbul.hookRequire())
+        .pipe(istanbul.hookRequire());
 });
 
 gulp.task('run-unit-tests', ['pre-unit-tests'], function(cb) {
