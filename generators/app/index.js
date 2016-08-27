@@ -4,6 +4,7 @@ var chalk = require('chalk');
 var extend = require('deep-extend');
 var glob = require('glob');
 var path = require('path');
+var mkdirp = require('mkdirp');
 var yeoman = require('yeoman-generator');
 var yosay = require('yosay');
 
@@ -58,6 +59,17 @@ module.exports = yeoman.Base.extend({
         }.bind(this));
     },
 
+    default: function() {
+        var appName = this.extensionConfig.appName;
+        if (path.basename(this.destinationPath()) !== appName) {
+            this.log('Your generator must be inside a directory with the same name as your extension name \'' + appName + '\'\n' + 
+            'I\'ll automatically create this directory for you.');
+
+            mkdirp(appName);
+            this.destinationRoot(this.destinationPath(appName));            
+        }
+    },
+
     writing: function() {
         this._writingBase();
         this.log('finished base copy');
@@ -94,7 +106,7 @@ module.exports = yeoman.Base.extend({
 
         var context = this.extensionConfig;
         context.dot = true;
-        this.fs.copyTpl(glob.sync(this.sourceRoot() + '/**/*', { dot: true }), context.appName, context);
+        this.fs.copyTpl(glob.sync(this.sourceRoot() + '/**/*', { dot: true }), this.destinationRoot(), context);
     },
 
     _writingCli: function() {
@@ -110,6 +122,6 @@ module.exports = yeoman.Base.extend({
     },
 
     install: function() {
-        // this.npmInstall();
+        this.npmInstall();
     }
 });
