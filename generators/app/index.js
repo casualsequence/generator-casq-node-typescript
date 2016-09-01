@@ -11,7 +11,7 @@ var yosay = require('yosay');
 var inputConfig = require('./input-config');
 
 var templateRoot = path.join(__dirname, 'templates');
-var baseRoot = path.join(templateRoot, 'base');
+var boilerplateRoot = path.join(templateRoot, 'boilerplate');
 
 module.exports = yeoman.Base.extend({
     initializing: function() {
@@ -36,12 +36,13 @@ module.exports = yeoman.Base.extend({
     },
 
     writing: function() {
-        this._writingBase();
-        this.sourceRoot = path.join(templateRoot, this.extensionConfig.type);
+        this._writingBoilerplate();
+        var extensionType = this.extensionConfig.type;
+        this.sourceRoot = path.join(templateRoot, extensionType);
 
-        switch (this.extensionConfig.type) {
+        switch (extensionType) {
             case inputConfig.basePromptValue:
-                this.log(yosay('Created just the basics.'));
+                this._writingBase();
                 break;
 
             case inputConfig.cliPromptValue:
@@ -59,8 +60,8 @@ module.exports = yeoman.Base.extend({
         }
     },
 
-    _writingBase: function() {
-        this.sourceRoot(baseRoot);
+    _writingBoilerplate: function() {
+        this.sourceRoot(boilerplateRoot);
         // var pkg = this.fs.readJSON(this.sourceRoot('package.json'), {});
         // extend(pkg, {
         //     name: '<%- JSON.stringify(name) %>'
@@ -71,6 +72,11 @@ module.exports = yeoman.Base.extend({
         var context = this.extensionConfig;
         context.dot = true;
         this.fs.copyTpl(glob.sync(this.sourceRoot() + '/**/*', { dot: true }), this.destinationRoot(), context);
+    },
+
+    _writingBase: function() {
+        this.log(yosay('Created just the basics.'));
+
     },
 
     _writingCli: function() {
