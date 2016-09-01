@@ -8,10 +8,7 @@ var mkdirp = require('mkdirp');
 var yeoman = require('yeoman-generator');
 var yosay = require('yosay');
 
-var basePromptValue = 'base';
-var cliPromptValue = 'cli';
-var expressApiPromptValue = 'express-api';
-var vstsTaskPromptValue = 'vsts-task';
+var inputConfig = require('./input-config');
 
 var templateRoot = path.join(__dirname, 'templates');
 var baseRoot = path.join(templateRoot, 'base');
@@ -22,39 +19,7 @@ module.exports = yeoman.Base.extend({
     },
 
     prompting: function() {
-        var prompts = [
-            {
-                type: 'input',
-                name: 'appName',
-                message: 'The name of your app',
-                required: true,
-            },
-            {
-                type: 'list',
-                name: 'type',
-                message: 'What type of app is this?',
-                choices: [
-                    {
-                        name: 'New App with just the Base Items',
-                        value: basePromptValue
-                    },
-                    {
-                        name: 'New CLI App',
-                        value: cliPromptValue
-                    },
-                    {
-                        name: 'New API App with Express and Docker',
-                        value: expressApiPromptValue
-                    },
-                    {
-                        name: 'New VSTS Task',
-                        value: vstsTaskPromptValue
-                    }
-                ]
-            }
-        ];
-
-        return this.prompt(prompts).then(function(extensionConfig) {
+        return this.prompt(inputConfig.prompts).then(function(extensionConfig) {
             this.extensionConfig = extensionConfig;
         }.bind(this));
     },
@@ -72,23 +37,22 @@ module.exports = yeoman.Base.extend({
 
     writing: function() {
         this._writingBase();
-        this.log('finished base copy');
         this.sourceRoot = path.join(templateRoot, this.extensionConfig.type);
 
         switch (this.extensionConfig.type) {
-            case basePromptValue:
+            case inputConfig.basePromptValue:
                 this.log(yosay('Created just the basics.'));
                 break;
 
-            case cliPromptValue:
+            case inputConfig.cliPromptValue:
                 this._writingCli();
                 break;
 
-            case expressApiPromptValue:
+            case inputConfig.expressApiPromptValue:
                 this._writingCli();
                 break;
 
-            case vstsTaskPromptValue:
+            case inputConfig.vstsTaskPromptValue:
                 this._writingCli();
                 break;
 

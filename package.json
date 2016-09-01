@@ -31,11 +31,11 @@
     "type": "git"
   },
   "scripts": {
-    "build": "npm run lint check-security",
+    "build": "npm run lint check-security run-unit-tests",
     "check-security": "gulp check-security",
     "gulp": "gulp",
     "lint": "gulp jshint eslint",
-    "show-unittest-coverage": "gulp show-unittest-coverage-report",
+    "show-unit-test-coverage": "gulp show-unit-test-coverage-report",
     "test": "gulp run-unit-tests check-security"
   },
   "devDependencies": {

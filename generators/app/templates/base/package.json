@@ -1,4 +1,6 @@
 {    
+    "name": <%- JSON.stringify(appName) %>,
+    "description": <%- JSON.stringify(description) %>,
     "version": "0.0.1",
     "license": "",
     "repository": {},
