@@ -96,6 +96,7 @@
         "after"     : false,
         "afterEach" : false,
         "suite"     : false,
-        "test"      : false
+        "test"      : false,
+        "setup"     : false
     }        
 }

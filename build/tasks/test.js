@@ -5,6 +5,7 @@ var browserOpen = require('gulp-open');
 var istanbul = require('gulp-istanbul');
 var mocha = require('gulp-mocha');
 var nsp = require('gulp-nsp');
+// var path = require('path');
 
 var gulpConfig = require('./../gulp-config');
 var istanbulConfig = require('./../istanbul-config');
@@ -34,6 +35,11 @@ gulp.task('run-unit-tests', ['pre-unit-tests'], function(cb) {
             reporters: istanbulConfig.reporters,
             dir: istanbulConfig.unitTestCoverageDirectory
         }))
+        .on('end', cb);
+});
+
+gulp.task('enforce-code-coverage', ['run-unit-tests'], function() {
+    return gulp.src(gulpConfig.srcJavascript)
         .pipe(istanbul.enforceThresholds({
             thresholds: {
                 global: {
@@ -49,8 +55,8 @@ gulp.task('run-unit-tests', ['pre-unit-tests'], function(cb) {
                     functions: istanbulConfig.unitTestLocalThresholds.functionCoverageThreshold
                 }
             }
-        }))
-        .on('end', cb);
+        }
+    ));
 });
 
 gulp.task('show-unit-test-coverage-report', ['run-unit-tests'], function() {

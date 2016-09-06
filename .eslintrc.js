@@ -36,6 +36,7 @@ module.exports = {
         afterEach: false,
         suite: false,
         test: false,
+        setup: false,
         __dirname: false
     }    
 };

@@ -1,7 +1,7 @@
 'use strict';
 
-var chalk = require('chalk');
-var extend = require('deep-extend');
+// var chalk = require('chalk');
+// var extend = require('deep-extend');
 var glob = require('glob');
 var path = require('path');
 var mkdirp = require('mkdirp');
@@ -50,11 +50,11 @@ module.exports = yeoman.Base.extend({
                 break;
 
             case inputConfig.expressApiPromptValue:
-                this._writingCli();
+                this._writingExpress();
                 break;
 
             case inputConfig.vstsTaskPromptValue:
-                this._writingCli();
+                this._writingVSTSTask();
                 break;
 
         }

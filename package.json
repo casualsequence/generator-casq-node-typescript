@@ -31,8 +31,9 @@
     "type": "git"
   },
   "scripts": {
-    "build": "npm run lint check-security run-unit-tests",
+    "build": "npm run lint check-security run-unit-tests enforce-code-coverage",
     "check-security": "gulp check-security",
+    "enforce-code-coverage": "gulp enforce-code-coverage",
     "gulp": "gulp",
     "lint": "gulp jshint eslint",
     "show-unit-test-coverage": "gulp show-unit-test-coverage-report",
@@ -47,6 +48,7 @@
     "gulp-mocha": "^2.2.0",
     "gulp-nsp": "^2.4.2",
     "gulp-open": "^2.0.0",
+    "istanbul": "^0.4.5",
     "jshint": "^2.9.2",
     "mocha": "^2.5.3",
     "mocha-multi": "^0.9.0",

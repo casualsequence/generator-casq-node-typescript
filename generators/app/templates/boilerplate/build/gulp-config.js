@@ -2,7 +2,7 @@
 
 var srcRoot = './src';
 var outputRoot = './out';
-var testRoot = '/.test';
+var testRoot = './test';
 var typescriptDefinitions = './typings/index.d.ts';
 var tsconfig = './tsconfig.json';
 

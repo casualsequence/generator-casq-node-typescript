@@ -1,7 +1,9 @@
 'use strict';
 
-var unitTestCoverageDirectory = './coverage/unit';
-var unitTestCoverageReportHtmlFile = './coverage/unit/index.html';
+var path = require('path');
+
+var unitTestCoverageDirectory = path.resolve('./coverage/unit/');
+var unitTestCoverageReportHtmlFile = path.resolve('./coverage/unit/lcov-report/index.html');
 
 var unitTestGlobalStatementCoverageThreshold = 100;
 var unitTestGlobalBranchCoverageThreshold = 100;
@@ -14,7 +16,7 @@ var unitTestLocalLineCoverageThreshold = 100;
 var unitTestLocalFunctionCoverageThreshold = 100;
 
 var includeUntested = true;
-var reporters = ['html', 'cobertura', 'lcov', 'text', 'text-summary'];
+var reporters = ['html', 'lcov', 'cobertura', 'text', 'text-summary'];
 
 module.exports = {
     unitTestGlobalThresholds: {
