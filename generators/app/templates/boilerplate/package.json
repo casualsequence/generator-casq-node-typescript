@@ -26,6 +26,9 @@
         "postinstall": "npm run install-typings",
         "transpile": "gulp transpile"
     },
+    "pre-commit": [
+      "gated-build"
+    ],
     "devDependencies": {
         "del": "^2.2.1",
         "eslint": "^3.2.0",

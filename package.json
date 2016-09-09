@@ -41,8 +41,7 @@
     "test": "gulp run-unit-tests check-security"
   },
   "pre-commit": [
-      "gated-build",
-      ""
+      "gated-build"
   ],
   "devDependencies": {
     "eslint": "^3.2.0",
@@ -71,10 +70,5 @@
     "path": "^0.12.7",
     "yeoman-generator": "^0.24.1",
     "yosay": "^1.2.0"
-  },
-  "pre-commit": [
-    "lint",
-    "validate",
-    "test"
-  ]
+  }
 }
