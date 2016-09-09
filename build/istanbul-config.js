@@ -3,7 +3,7 @@
 var path = require('path');
 
 var unitTestCoverageDirectory = path.resolve('./coverage/unit/');
-var unitTestCoverageReportHtmlFile = path.resolve('./coverage/unit/lcov-report/index.html');
+var unitTestCoverageReportHtmlFile = path.resolve('./coverage/unit/index.html');
 
 var unitTestGlobalStatementCoverageThreshold = 100;
 var unitTestGlobalBranchCoverageThreshold = 100;

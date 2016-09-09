@@ -88,15 +88,6 @@
 
     // Custom Globals
     "globals"       : {         // additional predefined global variables
-        /* MOCHA */
-        "describe"  : false,
-        "it"        : false,
-        "before"    : false,
-        "beforeEach": false,
-        "after"     : false,
-        "afterEach" : false,
-        "suite"     : false,
-        "test"      : false,
-        "setup"     : false
+
     }        
 }

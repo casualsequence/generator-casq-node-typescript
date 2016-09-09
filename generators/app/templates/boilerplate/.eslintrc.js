@@ -1,7 +1,30 @@
 module.exports = {
     env: {
         browser: false,
-        commonjs: true
+        commonjs: true,
+        node: true,
+        mocha: true,
+        "shared-node-browser": false,
+        es6: true,
+        worker: false,
+        amd: false,
+        jasmine: true,
+        jest: false,
+        phantomjs: true,
+        protractor: true,
+        qunit: true,
+        jquery: false,
+        prototypejs: false,
+        shelljs: true,
+        meteor: false,
+        mongo: true,
+        applescript: false,
+        nashorn: false,
+        serviceworker: false,
+        atomtest: false,
+        embertest: false,
+        webextensions: false,
+        greasemonkey: false
     },
     extends: 'eslint:recommended',
     rules: {
@@ -27,15 +50,6 @@ module.exports = {
     },
     // Custom Globals
     globals: {
-        /* MOCHA */
-        describe: false,
-        it: false,
-        before: false,
-        beforeEach: false,
-        after: false,
-        afterEach: false,
-        suite: false,
-        test: false,
-        __dirname: false
+
     }    
 };

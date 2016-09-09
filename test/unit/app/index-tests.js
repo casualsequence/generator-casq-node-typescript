@@ -4,6 +4,7 @@ var assert = require('yeoman-assert');
 // var fs = require('fs');
 var helpers = require('yeoman-test');
 var path = require('path');
+var sinon = require('sinon');
 
 var inputConfig = require('./../../../generators/app/input-config');
 
@@ -30,13 +31,48 @@ var boilerplateFiles = [
 ];
 
 suite('Node TypeScript Generator Suite: App', function() {
+    var sandbox;
+    setup(function() {
+        sandbox = sinon.sandbox.create();
+    });
+    teardown(function() {
+        sandbox.restore();
+    });
+    
     suite('Core Functionality Tests', function() {
-        test('Should create and scaffold into a new directory if the specified app name differs from the current directory', function() {
-
+        test('Should create and scaffold into a new directory if the specified app name differs from the current directory', function(done) {
+            var name = 'test';
+            helpers.run(path.join(__dirname, './../../../generators/app'))
+                .withPrompts({
+                    appName: name,
+                    description: 'my test',
+                    type: inputConfig.basePromptValue,                        
+                })
+                .toPromise()                
+                .then(function(dir) {
+                    assert.equal(path.basename(process.cwd()), name);
+                    assert.equal(path.resolve(process.cwd()), path.join(dir, name));
+                    done();
+                });
         });
 
-        test('Should scaffold into the current directory when the specified app name matches the current directory name', function() {
-
+        test('Should scaffold into the current directory when the specified app name matches the current directory name', function(done) {
+            var name = 'foo';
+            sandbox.stub(path, 'basename', function() {
+                return name;
+            });
+            helpers.run(path.join(__dirname, './../../../generators/app'))
+                .withPrompts({
+                    appName: name,
+                    description: 'my test',
+                    type: inputConfig.basePromptValue,                        
+                })
+                .toPromise()                
+                .then(function(dir) {
+                    assert.equal(path.resolve(process.cwd()), path.resolve(dir));
+                    assert.noFile(path.join(process.cwd(), name));
+                    done();
+                });
         });
     });
 
