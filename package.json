@@ -32,6 +32,7 @@
   },
   "scripts": {
     "build": "npm run lint check-security run-unit-tests enforce-code-coverage",
+    "gated-build": "gulp jshint eslint check-security run-unit-tests enforce-code-coverage",
     "check-security": "gulp check-security",
     "enforce-code-coverage": "gulp enforce-code-coverage",
     "gulp": "gulp",
@@ -39,6 +40,10 @@
     "show-unit-test-coverage": "gulp show-unit-test-coverage-report",
     "test": "gulp run-unit-tests check-security"
   },
+  "pre-commit": [
+      "gated-build",
+      ""
+  ],
   "devDependencies": {
     "eslint": "^3.2.0",
     "gulp": "^3.9.1",
@@ -52,6 +57,7 @@
     "jshint": "^2.9.2",
     "mocha": "^2.5.3",
     "mocha-multi": "^0.9.0",
+    "precommit-hook": "^3.0.0",
     "require-dir": "^0.3.0",
     "sinon": "^1.17.5",
     "yeoman-assert": "^2.2.1",
@@ -65,5 +71,10 @@
     "path": "^0.12.7",
     "yeoman-generator": "^0.24.1",
     "yosay": "^1.2.0"
-  }
+  },
+  "pre-commit": [
+    "lint",
+    "validate",
+    "test"
+  ]
 }
