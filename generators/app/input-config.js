@@ -41,6 +41,12 @@ module.exports = {
                     value: vstsTaskPromptValue
                 }
             ]
+        },
+        {
+            type: 'confirm',
+            name: 'installDependencies',
+            message: 'Do you want me to install dependencies for you?',
+            default: true
         }
     ],
     basePromptValue: basePromptValue,

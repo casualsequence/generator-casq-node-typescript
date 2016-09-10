@@ -1,6 +1,6 @@
 {
   "name": "generator-casq-node-typescript",
-  "version": "0.0.1",
+  "version": "0.1.2",
   "description": "Yeoman generator for various types of projects with Node and TypeScript",
   "author": {
     "name": "Casual Sequence",

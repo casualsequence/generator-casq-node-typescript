@@ -26,7 +26,7 @@ module.exports = yeoman.Base.extend({
 
     default: function() {
         var appName = this.extensionConfig.appName;
-        
+
         if (path.basename(this.destinationPath()) !== appName) {
             this.log('Your generator must be inside a directory with the same name as your extension name \'' + appName + '\'\n' + 
             'I\'ll automatically create this directory for you.');
@@ -93,6 +93,13 @@ module.exports = yeoman.Base.extend({
     },
 
     install: function() {
-        this.npmInstall();
+        var installDependencies = this.extensionConfig.installDependencies;
+
+        if (installDependencies === true) {
+            this.log('Installing dependencies');
+            this.npmInstall();
+        } else {
+            this.log('You said you wanted to install dependencies yourself, so don\'t forget!');
+        }     
     }
 });
