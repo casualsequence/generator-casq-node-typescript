@@ -40,10 +40,10 @@
     "show-unit-test-coverage": "gulp show-unit-test-coverage-report",
     "test": "gulp run-unit-tests check-security"
   },
-  "pre-commit": [
-      "lint",
-      "test",
-      "enforce-code-coverage"
+  "pre-commit": [      
+      "check-security",
+      "enforce-code-coverage",
+      "lint"
   ],
   "devDependencies": {
     "eslint": "^3.2.0",
