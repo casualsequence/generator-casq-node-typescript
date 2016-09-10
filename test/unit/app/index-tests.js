@@ -1,4 +1,5 @@
 'use strict';
+/* jshint maxstatements:false */
 
 var assert = require('yeoman-assert');
 var helpers = require('yeoman-test');
